@@ -1,7 +1,7 @@
 {
   "name": "domil",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small DOM library for when document.querySelector is just too long.",
   "source": "src/index.ts",
   "main": "dist/domil.js",
   "module": "dist/domil.mjs",
