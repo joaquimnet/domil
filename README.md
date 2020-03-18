@@ -22,7 +22,7 @@ npm install domil
 👤 **Joaquim Neto <joaquimmy@yahoo.com>**
 
 * Twitter: [@joaquimnet\_](https://twitter.com/joaquimnet\_)
-* Github: [@joaquimnet\_](https://github.com/joaquimnet\_)
+* Github: [@joaquimnet](https://github.com/joaquimnet)
 
 ## Show your support
 
