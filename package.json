@@ -9,7 +9,13 @@
   "scripts": {
     "build": "microbundle"
   },
-  "keywords": [],
+  "keywords": [
+    "dom"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaquimnet/domil.git"
+  },
   "author": "Joaquim Neto <joaquimmy@yahoo.com>",
   "license": "MIT",
   "devDependencies": {
