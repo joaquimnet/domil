@@ -1,0 +1,18 @@
+{
+  "name": "domil",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.ts",
+  "main": "dist/domil.js",
+  "module": "dist/domil.mjs",
+  "unpkg": "dist/domil.umd.js",
+  "scripts": {
+    "build": "microbundle"
+  },
+  "keywords": [],
+  "author": "Joaquim Neto <joaquimmy@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.12.0-next.8"
+  }
+}
