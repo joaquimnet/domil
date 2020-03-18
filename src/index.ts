@@ -25,16 +25,23 @@ o.make = (html: string): null | HTMLCollection | Element | Element[] => {
 o.create = (tag: keyof HTMLElementTagNameMap, options: ElementCreationOptions) =>
   document.createElement(tag, options);
 
-o.css = (el: HTMLElement, styles: CSSStyleDeclaration) => {
-  if (typeof styles === 'object') {
-    Object.keys(styles).forEach(
-      rule =>
-        ((el.style[rule as keyof CSSStyleDeclaration] as any) = styles[
+o.css = (element: HTMLElement, styles: CSSStyleDeclaration) => {
+  if (typeof styles === 'object' && !!element) {
+    Object.keys(styles).forEach(rule => {
+      if (Array.isArray(element)) {
+        element.forEach(el => {
+          (el.style[rule as keyof CSSStyleDeclaration] as any) = styles[
+            rule as keyof CSSStyleDeclaration
+          ] as any;
+        });
+      } else {
+        (element.style[rule as keyof CSSStyleDeclaration] as any) = styles[
           rule as keyof CSSStyleDeclaration
-        ] as any),
-    );
+        ] as any;
+      }
+    });
   }
-  return el;
+  return element;
 };
 
 o.sanitize = (str: string) => {
