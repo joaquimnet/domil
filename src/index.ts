@@ -25,17 +25,13 @@ o.make = (html: string): null | HTMLCollection | Element | Element[] => {
 o.create = (tag: keyof HTMLElementTagNameMap, options: ElementCreationOptions) =>
   document.createElement(tag, options);
 
-o.css = (element: HTMLElement, styles: CSSStyleDeclaration) => {
+o.css = (element: HTMLElement | NodeListOf<HTMLElement>, styles: CSSStyleDeclaration) => {
   if (typeof styles === 'object' && !!element) {
     Object.keys(styles).forEach(rule => {
-      if (Array.isArray(element)) {
-        element.forEach(el => {
-          (el.style[rule as keyof CSSStyleDeclaration] as any) = styles[
-            rule as keyof CSSStyleDeclaration
-          ] as any;
-        });
+      if ((element instanceof NodeList && element.length) || Array.isArray(element)) {
+        element.forEach((el: any) => o.css(el, styles));
       } else {
-        (element.style[rule as keyof CSSStyleDeclaration] as any) = styles[
+        ((element as HTMLElement).style[rule as keyof CSSStyleDeclaration] as any) = styles[
           rule as keyof CSSStyleDeclaration
         ] as any;
       }
